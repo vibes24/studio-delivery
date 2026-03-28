@@ -1,7 +1,7 @@
 # Base on latest stable worker-comfyui
 # Checked https://github.com/runpod-workers/worker-comfyui/releases on 2026-03-28
 # Latest stable tag is 5.8.5
-FROM runpod/worker-comfyui:5.8.5
+FROM runpod/worker-comfyui:5.8.5-base
 
 # Install custom nodes
 # We use /comfyui/custom_nodes as the base path for nodes in this worker image
