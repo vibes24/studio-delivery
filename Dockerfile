@@ -29,4 +29,4 @@ RUN ffmpeg -version 2>&1 | head -1
 # Models loaded from network volume at /runpod-volume at runtime
 ENV COMFY_EXTRA_MODEL_PATHS_CONFIG=/runpod-volume/extra_model_paths.yaml
 ENV COMFY_LOG_LEVEL=INFO
-ENV REFRESH_WORKER=true
+ENV REFRESH_WORKER=false
