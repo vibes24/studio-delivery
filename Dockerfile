@@ -25,8 +25,8 @@ RUN cd /comfyui/custom_nodes && \
 # Verify ffmpeg is present (required by VideoHelperSuite)
 RUN ffmpeg -version 2>&1 | head -1
 
-# Pre-configure environment
-# Models loaded from network volume at /runpod-volume at runtime
-ENV COMFY_EXTRA_MODEL_PATHS_CONFIG=/runpod-volume/extra_model_paths.yaml
+# Bake extra_model_paths.yaml into the image — points to /runpod-volume at runtime
+RUN printf 'maple_studio:\n  base_path: /runpod-volume/models\n  checkpoints: checkpoints/\n  clip: clip/\n  vae: vae/\n  loras: loras/\n  controlnet: controlnet/\n  ipadapter: ipadapter/\n  animatediff_models: animatediff_models/\n  unet: unet/\n  diffusion_models: unet/\n  text_encoders: clip/\n' > /comfyui/extra_model_paths.yaml
+
 ENV COMFY_LOG_LEVEL=INFO
 ENV REFRESH_WORKER=false
